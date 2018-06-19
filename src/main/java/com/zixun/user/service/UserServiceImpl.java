@@ -18,7 +18,8 @@ public class UserServiceImpl  implements IUserService{
     @Transactional
     public int createUser(User user,User user1) {
         userMapper.insertSelective(user);
+        int a=1/0;
         userMapper.insertSelective(user1);
-        return 1;
+        return 0;
     }
 }

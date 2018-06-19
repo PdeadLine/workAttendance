@@ -19,7 +19,7 @@
     <!--扫描注解生成bean-->
     <context:annotation-config/>
     <!--包扫描-->
-    <context:component-scan base-package="com.zixun.**.controller"/>
+    <context:component-scan base-package="com.zixun"/>
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
