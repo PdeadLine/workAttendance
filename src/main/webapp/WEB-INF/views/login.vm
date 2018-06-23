@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>信泰员工考勤</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/adminlte.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/static/iCheck/square/blue.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="/static/css/google_font.css" rel="stylesheet">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="login-logo">
+        <a href="../../index2.html"><b>员工考勤</b>信泰</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">登入开始你的工作</p>
+
+            <form id="loginForm" action="../../index2.html" method="post">
+                <div class="form-group has-feedback">
+                    <input id="user" type="text" class="form-control" placeholder="用户名" name="username">
+                    <span class="fa fa-envelope form-control-feedback"></span>
+                    <span id="userWar" style="color: red;visibility: hidden">用户名不能为空</span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input id="pwd" type="password" class="form-control" placeholder="Password" name="password">
+                    <span class="fa fa-lock form-control-feedback"></span>
+                    <span id="pwdWar" style="color: red;visibility: hidden">密码不能为空</span>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="checkbox icheck">
+                            <label>
+                                <input type="checkbox"> 记住我
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-4">
+                        <button id="btn" type="button" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+
+
+        <!-- /.login-card-body -->
+    </div>
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="/static/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- iCheck -->
+<script src="/static/iCheck/icheck.min.js"></script>
+<script>
+    $(function () {
+
+        $("#btn").click(function () {
+            var usr = $("#user").val();
+            var pwd = $("#pwd").val();
+            var verify=true
+            if(0==usr.length) {
+                $("#userWar").css("visibility","visible");
+                verify=false;
+            }else{
+                $("#userWar").css("visibility","hidden");
+            }
+
+            if(0==pwd.length) {
+                $("#pwdWar").css("visibility","visible");
+                verify=false;
+            }else{
+                $("#pwdWar").css("visibility","hidden");
+            }
+
+            if(verify) {
+               // $("#loginForm").submit();  同步方式提交表单
+                //ajax提交表单
+            }
+        });
+
+    })
+</script>
+</body>
+</html>
