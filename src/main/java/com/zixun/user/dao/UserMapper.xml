@@ -103,4 +103,11 @@
       head_image = #{headImage,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByUserName" resultMap="BaseResultMap" parameterType="string">
+    <include refid="Base_Column_List" />
+    from user
+    where username = #{userName}
+
+  </select>
 </mapper>

@@ -2,6 +2,12 @@ package com.zixun.user.service;
 
 import com.zixun.user.entity.User;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 public interface IUserService {
-    public int createUser(User user,User user1);
+
+    User findUserByUsername(String userName);
+
+    void createUser(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException;
 }

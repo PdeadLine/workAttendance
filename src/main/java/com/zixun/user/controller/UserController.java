@@ -16,23 +16,4 @@ public class UserController {
     @Autowired
     private IUserService iUserService;
 
-    @RequestMapping("/index")
-    public String user(){
-        User user=new User();
-        user.setUsername("张3");
-        user.setPassword("123456");
-        user.setMobile("1383838438");
-        user.setRealName("资讯管理员");
-
-        User user1=new User();
-        user1.setId(1L);
-        user1.setUsername("张3");
-        user1.setPassword("123456");
-        user1.setMobile("1383838438");
-        user1.setRealName("资讯管理员");
-        iUserService.createUser(user, user1);
-        return "user";
-    }
-
-
 }

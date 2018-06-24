@@ -29,7 +29,6 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">登入开始你的工作</p>
 
-            <form id="loginForm" action="../../index2.html" method="post">
                 <div class="form-group has-feedback">
                     <input id="user" type="text" class="form-control" placeholder="用户名" name="username">
                     <span class="fa fa-envelope form-control-feedback"></span>
@@ -54,7 +53,6 @@
                     </div>
                     <!-- /.col -->
                 </div>
-            </form>
 
 
         <!-- /.login-card-body -->
@@ -72,10 +70,10 @@
     $(function () {
 
         $("#btn").click(function () {
-            var usr = $("#user").val();
+            var user = $("#user").val();
             var pwd = $("#pwd").val();
             var verify=true
-            if(0==usr.length) {
+            if(0==user.length) {
                 $("#userWar").css("visibility","visible");
                 verify=false;
             }else{
@@ -92,6 +90,14 @@
             if(verify) {
                // $("#loginForm").submit();  同步方式提交表单
                 //ajax提交表单
+                $.ajax({
+                    url:"/login/check",
+                    data:{"username":user,"password":pwd},
+                    type:"POST",
+                    success:function (data) {
+                        alert(data);
+                    }
+                });
             }
         });
 

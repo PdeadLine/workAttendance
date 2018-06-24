@@ -16,7 +16,7 @@ public class SecurityUtils {
      * @param password
      * @return
      */
-    public String encrptyPassword(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    public static String encrptyPassword(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         //消息摘要
         MessageDigest md5=MessageDigest.getInstance("MD5");
         //防止乱码
@@ -25,7 +25,7 @@ public class SecurityUtils {
         return result;
     }
 
-    public boolean checkPassword(String inputPwd, String dbPwd) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public static boolean checkPassword(String inputPwd, String dbPwd) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         String result = encrptyPassword(inputPwd);
         if (result.equals(dbPwd)) {
             return true;
