@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Log in</title>
+    <title>信泰考勤登陆</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,56 +21,41 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
+        <a href="../../index2.html"><b>信泰考勤系统</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="../../index2.html" method="post">
+            <form action="../../index2.html" method="post" id="login_form">
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="text" class="form-control" placeholder="用户名" id="userName" name="userName">
                     <span class="fa fa-envelope form-control-feedback"></span>
+                    <span id="userName_alert" style="color: red;visibility: hidden">用户名为空，请输入！</span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" placeholder="密码" id="pwd" name="pwd">
                     <span class="fa fa-lock form-control-feedback"></span>
+                    <span id="pwd_alert" style="color: red;visibility: hidden">密码为空，请输入！</span>
                 </div>
                 <div class="row">
                     <div class="col-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox"> Remember Me
+                                <input type="checkbox"> 记住我
                             </label>
                         </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <button type="button" class="btn btn-primary btn-block btn-flat" id="login_btn">登陆</button>
                     </div>
                     <!-- /.col -->
                 </div>
             </form>
 
-            <div class="social-auth-links text-center mb-3">
-                <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-primary">
-                    <i class="fa fa-facebook mr-2"></i> Sign in using Facebook
-                </a>
-                <a href="#" class="btn btn-block btn-danger">
-                    <i class="fa fa-google-plus mr-2"></i> Sign in using Google+
-                </a>
-            </div>
-            <!-- /.social-auth-links -->
 
-            <p class="mb-1">
-                <a href="#">I forgot my password</a>
-            </p>
-            <p class="mb-0">
-                <a href="register.html" class="text-center">Register a new membership</a>
-            </p>
-        </div>
         <!-- /.login-card-body -->
     </div>
 </div>
@@ -84,10 +69,33 @@
 <script src="/static/iCheck/icheck.min.js"></script>
 <script>
     $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass   : 'iradio_square-blue',
-            increaseArea : '20%' // optional
+        $("#login_btn").click(function () {
+            var user = $("#userName").val();
+            var pwd = $("#pwd").val();
+            var verify=true;
+            if(user.length==0) {
+                $("#userName_alert").css("visibility", "visible");
+                verify=false;
+            }else {
+                $("#userName_alert").css("visibility", "hidden");
+            }
+            if(pwd.length==0) {
+                $("#pwd_alert").css("visibility", "visible");
+                verify=false;
+            }else {
+                $("#pwd_alert").css("visibility", "hidden");
+            }
+            if(verify) {
+          /*      $.ajax({
+                    url: "",
+                    type:"",
+                    data:"",
+                    success:function (data) {
+                        alert(data);
+                    }
+                });*/
+          $("#login_form").submit();
+            }
         })
     })
 </script>

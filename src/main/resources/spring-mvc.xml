@@ -13,6 +13,8 @@
     <context:component-scan base-package="com.zixun.*.controller"/>
     <!--开启注解扫描-->
     <mvc:annotation-driven/>
+    <!--默认资源处理器【非业务请求】-->
+    <mvc:default-servlet-handler/>
 
     <bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
         <property name="resourceLoaderPath" value="/WEB-INF/views"/>
@@ -32,6 +34,5 @@
         <property name="contentType" value="text/html;charset=utf-8"/>
         <property name="dateToolAttribute" value="date"/><!--日期函数名称-->
     </bean>
-
 
 </beans>
