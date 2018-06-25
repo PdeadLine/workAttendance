@@ -32,4 +32,12 @@ public class SecurityUtils {
         }
         return false;
     }
+
+    public static boolean checkMD5Password(String inputPwd, String dbPwd) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        String result = MD5Utils.MD5EncodeUtf8(inputPwd);
+        if (result.equals(dbPwd)) {
+            return true;
+        }
+        return false;
+    }
 }

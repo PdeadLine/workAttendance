@@ -1,6 +1,7 @@
 package com.zixun.user.dao;
 
 import com.zixun.user.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Long id);
@@ -20,5 +21,5 @@ public interface UserMapper {
      * @param userName
      * @return
      */
-    User selectByUserName(String userName);
+    User selectByUserName(@Param("username") String userName);
 }

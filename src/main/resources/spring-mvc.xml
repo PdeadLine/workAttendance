@@ -14,6 +14,9 @@
     <!--开启注解扫描-->
     <mvc:annotation-driven>
         <mvc:message-converters>
+           <!--字符串解析器-->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            <!--json数据请求解析器-->
             <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
                 <property name="supportedMediaTypes">
                     <list>
@@ -47,5 +50,8 @@
         <property name="dateToolAttribute" value="date"/><!--日期函数名称-->
     </bean>
 
-
+    <!--登陆请求拦截器-->
+    <mvc:interceptors>
+        <bean class="com.zixun.common.interceptor.SessionInterceptor"/>
+    </mvc:interceptors>
 </beans>

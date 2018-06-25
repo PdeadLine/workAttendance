@@ -51,6 +51,7 @@
                     <div class="col-4">
                         <button id="btn" type="button" class="btn btn-primary btn-block btn-flat">Sign In</button>
                     </div>
+                    <span id="login_error" style="color: red;visibility: hidden">用户名密码不匹配，请重新输入</span>
                     <!-- /.col -->
                 </div>
 
@@ -94,10 +95,14 @@
                     url:"/login/check",
                     data:{"username":user,"password":pwd},
                     type:"POST",
-                    success:function (data) {
-                        alert(data);
+                    success:function (result) {
+                       if(result=="login_succ") {
+                           window.location.href = "/user/home";
+                       }else {
+                           $("#login_error").css("visibility","visible");
+                       }
                     }
-                });
+                })
             }
         });
 

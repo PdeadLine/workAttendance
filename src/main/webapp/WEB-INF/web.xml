@@ -47,9 +47,20 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <!--拦截器不拦截静态资源-->
   <servlet-mapping>
     <servlet-name>default</servlet-name>
-    <url-pattern>/static</url-pattern>
+    <url-pattern>/static/*</url-pattern>
   </servlet-mapping>
 
+  <!--错误页面自定义-->
+  <error-page>
+    <error-code>404</error-code>
+    <location>/404.html</location>
+  </error-page>
+
+  <error-page>
+    <error-code>500</error-code>
+    <location>/500.html</location>
+  </error-page>
 </web-app>

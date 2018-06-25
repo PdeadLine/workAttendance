@@ -105,9 +105,9 @@
   </update>
 
   <select id="selectByUserName" resultMap="BaseResultMap" parameterType="string">
+    SELECT
     <include refid="Base_Column_List" />
-    from user
-    where username = #{userName}
-
+    from `user`
+    where username = #{username}
   </select>
 </mapper>

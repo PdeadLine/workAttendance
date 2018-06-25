@@ -1,11 +1,10 @@
 package com.zixun.user.service;
 
-import com.zixun.common.utils.SecurityUtils;
+import com.zixun.common.utils.MD5Utils;
 import com.zixun.user.dao.UserMapper;
 import com.zixun.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -19,13 +18,7 @@ public class UserServiceImpl  implements IUserService{
     @Autowired
     private UserMapper userMapper;
 
-    @Transactional
-    public int createUser(User user,User user1) {
-        userMapper.insertSelective(user);
-        int a=1/0;
-        userMapper.insertSelective(user1);
-        return 0;
-    }
+
 
     /**
          * @Author pdeadline [sintaiZX]
@@ -48,7 +41,8 @@ public class UserServiceImpl  implements IUserService{
          */
     @Override
     public void createUser(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        user.setPassword(SecurityUtils.encrptyPassword(user.getPassword()));
+     //   user.setPassword(SecurityUtils.encrptyPassword(user.getPassword()));
+        user.setPassword(MD5Utils.MD5EncodeUtf8(user.getPassword()));
         userMapper.insertSelective(user);
     }
 }
