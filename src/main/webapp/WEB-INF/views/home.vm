@@ -19,6 +19,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Google Font: Source Sans Pro -->
     <link href="/static/css/google_font.css" rel="stylesheet">
 </head>
+
+<
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
@@ -232,7 +234,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-             #*   <div class="row">
+                <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
@@ -288,7 +290,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                     </div>
                     <!-- /.col-md-6 -->
-                </div>*#
+                </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -317,6 +319,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </footer>
 </div>
 <!-- ./wrapper -->
+
+
 
 <!-- REQUIRED SCRIPTS -->
 
