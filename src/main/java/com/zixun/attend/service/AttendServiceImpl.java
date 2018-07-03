@@ -44,20 +44,34 @@ public class AttendServiceImpl implements IAttendService {
            Attend todayRecord=attendMapper.selectTodaySignRecord(attend.getUserId());
 
            Date noon = DateUtils.getDate(NOON_HOUR, NOON_MINUTE);
-           if (today.compareTo(noon)<=0) {
-            //打卡时间小于12点，上午打卡
-               attend.setAttendMoring(today);
+           if (todayRecord == null) {
+               if (today.compareTo(noon)<=0) {
+                   //打卡时间小于12点，上午打卡
+                   attend.setAttendMoring(today);
+               }else {
+                   //下午打卡
+                   attend.setAttendEvening(today);
+               }
+               attendMapper.insertSelective(attend);
            }else {
-               //下午打卡
-               attend.setAttendEvening(today);
+               if (today.compareTo(noon)<=0) {
+                   //打卡时间小于12点，上午打卡
+                   return;
+               }else {
+                   //下午打卡
+                   attend.setAttendEvening(today);
+                   attendMapper.updateByPrimaryKeySelective(todayRecord);
+               }
            }
+
+
 
    //打卡业务分析：1.中午十二点之前打卡，都算早晨打卡。如果8.30以后打开，直接异常，算迟到
            //2.十二点以后都算下午打卡；
            //3.下午打卡，检查与上午打卡时间差，17点之前算异常
            //4.不足八个小时都算异常，并且缺勤多长时间要保存进数据库
 
-           attendMapper.insertSelective(attend);
+
        }catch (Exception e){
         log.error("打卡异常",e);
         throw e;
