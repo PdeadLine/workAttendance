@@ -125,4 +125,12 @@
       attend_status = #{attendStatus,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="selectTodaySignRecord" resultMap="BaseResultMap" parameterType="long">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM attend
+    where user_id=#{userId}
+    and attend_date=curdate()
+  </select>
+
 </mapper>
