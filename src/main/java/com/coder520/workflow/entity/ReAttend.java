@@ -1,8 +1,9 @@
 package com.coder520.workflow.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ReAttend {
+public class ReAttend  implements Serializable{
     private Long id;
 
     private Long attendId;

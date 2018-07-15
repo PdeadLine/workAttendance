@@ -178,7 +178,7 @@
     </div>
     <!-- /.content-wrapper -->
     <!-- 模态框示例（Modal） -->
-    <form method="post" action="" class="form-horizontal" role="form" id="form_data" onsubmit="return check_form()" style="margin: 20px;">
+    <form method="post" action="/reAttend/start" class="form-horizontal" role="form" id="form_data" onsubmit="return check_form()" style="margin: 20px;">
         <div class="modal fade" id="reAttendModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -187,7 +187,7 @@
                             &times;
                         </button>
                         <h4 class="modal-title" id="myModalLabel">
-                            用户信息
+                            考勤补签
                         </h4>
                     </div>
                     <div class="modal-body">
@@ -199,27 +199,25 @@
                                            placeholder="请输入用户ID">
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label for="lastname" class="col-sm-3 control-label">用户名</label>
+                                <label for="attend_mor" class="col-sm-3 control-label">补签时间</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="user_name" value="" id="user_name"
-                                           placeholder="用户名">
+                                    <input type="text" class="form-control" id="attend_mor" name="attend_mor" value=""
+                                           placeholder="请输入早上补签世间">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="lastname" class="col-sm-3 control-label">地址</label>
+                                <label for="attend_eve" class="col-sm-3 control-label">补签时间</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="address" value="" id="address"
-                                           placeholder="地址">
+                                    <input type="text" class="form-control" id="attend_eve" name="attend_eve" value=""
+                                           placeholder="请输入晚上补签世间">
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label for="remark" class="col-sm-3 control-label">备注</label>
+                                <label for="remark" class="col-sm-3 control-label">理由</label>
                                 <div class="col-sm-9">
                                 <textarea  class="form-control"  name="remark" value="{remark}" id="remark"
-                                           placeholder="备注">
+                                           placeholder="理由">
 
                                 </textarea>
                                 </div>

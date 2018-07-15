@@ -35,10 +35,11 @@ public class ReAttendController {
     private ReAttendService reAttendService;
 
     /**
-     *@Author JackWang [www.coder520.com]
-     *@Date 2017/7/1 22:48
-     *@Description 补签数据页面
-     */
+         * @Author pdeadline [sintaiZX]
+         * @Date    2018/7/10 22:29
+         * @Description 补签记录
+         *
+         */
     @RequestMapping
     public String toReAttend(Model model,HttpSession session){
 
@@ -49,7 +50,12 @@ public class ReAttendController {
     }
 
 
-
+    /**
+         * @Author pdeadline [sintaiZX]
+         * @Date    2018/7/10 22:25
+         * @Description 申请补签
+         *
+         */
     @RequestMapping("/start")
     public void startReAttendFlow(@RequestBody ReAttend reAttend, HttpSession session){
         User user = (User) SecurityUtils.getSubject().getSession().getAttribute("userinfo");
@@ -57,7 +63,12 @@ public class ReAttendController {
         reAttendService.startReAttendFlow(reAttend);
     }
 
-
+    /**
+         * @Author pdeadline [sintaiZX]
+         * @Date    2018/7/10 22:28
+         * @Description 待办补签
+         *
+         */
 //    @RequiresRoles("leader")
     @RequiresPermissions("reAttend:list")
     @RequestMapping("/list")
@@ -69,7 +80,12 @@ public class ReAttendController {
         return  "reAttendApprove";
     }
 
-
+    /**
+         * @Author pdeadline [sintaiZX]
+         * @Date    2018/7/10 22:26
+         * @Description 审核补签
+         *
+         */
     @RequestMapping("/approve")
     public void approveReAttendFlow(@RequestBody ReAttend reAttend){
         reAttendService.approve(reAttend);
