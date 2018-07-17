@@ -97,7 +97,7 @@ public class ReAttendServiceImpl implements ReAttendService{
     public List<ReAttend> listTasks(String userName) {
 
         List<ReAttend> reAttendList = new ArrayList<>();
-        List<Task> taskList= taskService.createTaskQuery().processVariableValueEquals(userName).list();
+        List<Task> taskList= taskService.createTaskQuery().processVariableValueEquals("laowang666").list();
         //转换成页面实体
         if(CollectionUtils.isNotEmpty(taskList)){
             for(Task task : taskList){

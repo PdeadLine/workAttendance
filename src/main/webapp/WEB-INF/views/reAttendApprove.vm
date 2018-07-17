@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>码码在线考勤系统</title>
+    <title>深圳资讯在线考勤</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -167,7 +167,7 @@
 
     <!-- Main Footer -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2016 <a href="#">码码在线</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2018 <a href="#">深圳资讯在线考勤</a>.</strong> All rights reserved.
     </footer>
 
 </div>

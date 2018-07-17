@@ -44,7 +44,7 @@ public class ReAttendController {
     public String toReAttend(Model model,HttpSession session){
 
         User user = (User) SecurityUtils.getSubject().getSession().getAttribute("userinfo");
-        List<ReAttend> reAttendList = reAttendService.listReAttend(user.getUsername());
+        List<ReAttend> reAttendList = reAttendService.listReAttend("张三");
         model.addAttribute("reAttendList",reAttendList);
         return "reAttend";
     }
@@ -75,8 +75,8 @@ public class ReAttendController {
     public String listReAttendFlow(Model model,HttpSession session){
         User user = (User) SecurityUtils.getSubject().getSession().getAttribute("userinfo");
         String userName = user.getUsername();
-        List<ReAttend> tasks = reAttendService.listTasks(userName);
-        model.addAttribute("tasks",tasks);
+        List<ReAttend> reAttendList = reAttendService.listTasks(userName);
+        model.addAttribute("reAttendList",reAttendList);
         return  "reAttendApprove";
     }
 
